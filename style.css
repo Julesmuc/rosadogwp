@@ -1,0 +1,106 @@
+/*
+ Theme Name:   leonie
+ Theme URI:    http://example.com/twenty-fifteen-child/
+ Description:  rosadog child theme
+ Author:       Leonie Spiller
+ Author URI:   www.rosadog.de
+ Template:     antreas
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  antreaschildtheme
+*/
+:root {
+    --main-color: #abd4cf;
+    --second-color: #00695c;
+    --warning-color: #e57373;
+  }
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+background:#abd4cf !important;
+}
+/* Menü */
+.menu-main li a {
+    color: black !important;
+}
+.menu-main li a:hover {
+    color: var(--warning-color) !important;
+}
+.menu-item.menu-highlight > a, .menu-main .menu-highlight.current_page_ancestor > a, .menu-main .menu-highlight.current-menu-item > a{
+    background-color: var(--second-color) !important;
+    color: #fff !important;
+    border-radius: 1.5px !important;
+}
+/*Slider*/
+ody .dark h1, body .dark h2, body .dark h3, body .dark h4, body .dark h5, body .dark h6, body .dark .heading, body .dark a:link, body .dark a:visited, body .dark a:hover, body .dark a:focus {
+    color: #fff !important;
+}
+/*Für wen*/
+.col2 {
+    width: 47,5% !important;
+}
+.services .service .service-content {
+    list-style: none  !important;
+}
+/*Kundenstimmen*/
+.testimonials .testimonial-image {
+    width: 150px !important;
+}
+.primary-color {
+    color: var(--second-color) !important;
+}
+.primary-color-bg {
+    background-color: var(--warning-color) !important;
+}
+.about__content {
+    text-align: center !important;
+}
+.services .service a {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+/*Funktionen*/
+body.has-post-thumbnail .pagetitle {
+    background-color: var(--second-color) !important;
+}
+.single-cpo_portfolio .single-image {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+	max-width: 70% !important;
+}
+/*Footer*/
+.subfooter {
+    background-color: var(--main-color) !important;
+}
+a:link, a:visited {
+    color: var(--second-color) !important;
+}
+strong, b {
+    color: black !important;
+}
+html body .button, html body .button:link, html body .button:visited, html body input[type=submit] {
+    background: var(--second-color) !important;
+}
+
+/*button*/
+.kaliforms-form-container .light-green {
+    background: var(--second-color) !important;
+    box-shadow: 0 3px 0  var(--main-color) !important;
+  	position: absolute !important;
+  	top: 50% !important;
+  	left: 50% !important;
+  	-ms-transform: translate(-50%, -50%) !important;
+ 	transform: translate(-50%, -50%) !important;
+	margin-top: 20px !important;
+}
+.kaliforms-form-container .light-green:hover {
+    background: var(--main-color) !important;
+}
+.kaliforms-form-container>h3 {
+    text-align: center !important;
+}
