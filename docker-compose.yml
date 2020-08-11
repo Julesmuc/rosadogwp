@@ -1,0 +1,58 @@
+version: "3.8"
+
+services:
+  leoniewordpress-db:
+    image: mariadb:10.5.2
+    container_name: leoniewordpress-db
+    restart: always
+    volumes:
+      - db_wordpress_data:/var/lib/mysql
+    env_file: .env
+    ports:
+      - 127.0.0.1:3307:3306
+    environment:
+      - MYSQL_DATABASE=leoniewordpress-db
+    networks:
+      - leoniewordpressnetwork
+    command:
+      [
+        "mysqld",
+        "--character-set-server=utf8mb4",
+        "--collation-server=utf8mb4_unicode_ci",
+      ]
+
+  leoniewordpress:
+    image: wordpress:latest
+    ports:
+      - "8000:80"
+    container_name: leoniewordpress
+    env_file: .env
+    environment:
+      - VIRTUAL_PORT=8000
+      - VIRTUAL_HOST=rosadog.de, www.rosadog.de
+      - LETSENCRYPT_HOST=rosadog.de, www.rosadog.de
+      - LETSENCRYPT_EMAIL=julianschroeter@outlook.com
+      - WORDPRESS_DB_HOST=leoniewordpress-db:3306
+      - WORDPRESS_DB_USER=$MYSQL_USER
+      - WORDPRESS_DB_PASSWORD=$MYSQL_PASSWORD
+      - WORDPRESS_DB_NAME=leoniewordpress-db
+      - FS_METHOD=direct
+    depends_on:
+      - leoniewordpress-db
+    volumes: 
+      - ./wordpress:/var/www/html
+      - ./.htaccess:/var/www/html/.htaccess
+    restart: always
+    networks:
+      - leoniewordpressnetwork
+      - proxy  
+
+
+networks:
+  proxy:
+    external:
+      name: nginx-proxy
+  leoniewordpressnetwork:
+volumes: 
+  wordpress:
+  db_wordpress_data: {}

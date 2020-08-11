@@ -1,0 +1,7 @@
+.env
+node_modules/
+*.log
+*.sql
+*.sqlite
+wordpress/
+wp-content/
