@@ -22,7 +22,7 @@ services:
       ]
 
   leoniewordpress:
-    image: wordpress:latest
+    image: wordpress:php7.4-apache
     ports:
       - "8000:80"
     container_name: leoniewordpress
